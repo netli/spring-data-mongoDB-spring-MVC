@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/mvc"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xsi:schemaLocation="http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- DispatcherServlet Context: defines this servlet's request-processing infrastructure -->
+	
+	<!-- Enables the Spring MVC @Controller programming model -->
+	<annotation-driven >
+		<argument-resolvers>
+			<!-- http://static.springsource.org/spring-data/data-mongodb/docs/current/reference/html/#web-pagination -->
+			<beans:bean class="org.springframework.data.web.PageableArgumentResolver"></beans:bean>
+		</argument-resolvers>
+	</annotation-driven>
+
+	<resources mapping="/favicon.ico" location="/favicon.ico" />
+	<resources mapping="/resources/**" location="/resources/" />
+	<resources mapping="/static/**" location="/resources/" />
+
+	<!-- Resolves views selected for rendering by @Controllers to .jsp resources in the /WEB-INF/views directory -->
+	<view-controller path="/about" view-name="about"/>
+	
+	<view-controller path="/parents/login" view-name="parents/login" />
+
+    <!-- <view-controller path="/" view-name="index"/>  -->
+	<beans:bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+		<beans:property name="prefix" value="/WEB-INF/views/" />
+		<beans:property name="suffix" value=".jsp" />
+	</beans:bean>
+	
+	<context:component-scan base-package="me.itzg.kidsbank"
+		use-default-filters="false">
+		<context:include-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
+	</context:component-scan>
+
+	<interceptors>
+		<interceptor>
+			<mapping path="/**" />
+			<beans:bean class="me.itzg.kidsbank.controllers.CommonInterceptor"></beans:bean>
+		</interceptor>
+	</interceptors>
+</beans:beans>

@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xmlns:context="http://www.springframework.org/schema/context"
+	xmlns:task="http://www.springframework.org/schema/task"
+	xsi:schemaLocation="http://www.springframework.org/schema/task http://www.springframework.org/schema/task/spring-task-3.1.xsd
+		http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context-3.1.xsd">
+
+	<!-- Root Context: defines shared resources visible to all other web components -->
+
+    <context:component-scan base-package="me.itzg.kidsbank">
+        <context:exclude-filter expression="org.springframework.stereotype.Controller" type="annotation"/>
+    </context:component-scan>
+	
+    <task:scheduler id="scheduler" />
+    <task:scheduled-tasks scheduler="scheduler">
+    	<task:scheduled method="processDailyAllowance"
+    		ref="allowanceService" cron="0 5 * * * *" />
+    </task:scheduled-tasks>
+    <bean id="messageSource"
+    	class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    	<property name="basename" value="classpath:messages"></property>
+    </bean>
+</beans>

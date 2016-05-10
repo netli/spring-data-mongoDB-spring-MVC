@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans:beans xmlns="http://www.springframework.org/schema/security"
+	xmlns:beans="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/security http://www.springframework.org/schema/security/spring-security-3.1.xsd http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-3.1.xsd ">
+
+	<http pattern="/parents/login" security="none"></http>
+	<http pattern="/kids/login" security="none"></http>
+	<http pattern="/kids/register" security="none"></http>
+	
+	<http auto-config="true" pattern="/parents/**"
+		use-expressions="true">
+		<intercept-url pattern="/parents/**" access="hasRole('parent')" />
+
+		
+		<openid-login login-page="/parents/login"
+			authentication-failure-url="/parents/login?error=1"
+			user-service-ref="parentUserDetailsService"
+			login-processing-url="/parents/login_check">
+		</openid-login>
+		
+		<logout logout-url="/parents/logout"/>
+		
+	</http>
+
+	<http pattern="/kids/**" authentication-manager-ref="kidsAuthMgr"
+		auto-config="true">
+		<intercept-url pattern="/kids/**" access="ROLE_KID" />
+		<form-login login-page="/kids/login"
+			default-target-url="/kids/main"
+			login-processing-url="/kids/login_check" />
+		<logout logout-url="/kids/logout"/>
+	</http>
+
+	<authentication-manager></authentication-manager>
+	<authentication-manager id="kidsAuthMgr">
+		<authentication-provider
+			user-service-ref="kidsUserDetailsService">
+		</authentication-provider>
+	</authentication-manager>
+
+	
+</beans:beans>

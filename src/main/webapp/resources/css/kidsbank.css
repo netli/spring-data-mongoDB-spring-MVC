@@ -1,0 +1,188 @@
+@CHARSET "ISO-8859-1";
+
+body {
+	margin: 0;
+	font-family: sans-serif;
+ 	background-image: url(../img/bg.png);
+ 	background-repeat: repeat-x;
+ 	background-color: #ffffff;
+}
+
+.error {
+	color: red;
+	font-weight: bold;
+	margin: 5 10;
+}
+
+#content {
+	margin: 10px;
+}
+
+.yellowish {
+	color: #584c09;
+}
+
+#headerButtons {
+	position: absolute;
+	top: 1em;
+	right: 1em;
+}
+
+#headerButtons button {
+	font-size: smaller;
+}
+
+img#logo {
+	display: block;
+}
+
+#footer {
+	width: 100%;
+	margin-top: 3em;
+	text-align: center;
+	font-size: smaller;
+	font-style: italic;
+}
+
+#footer div {
+	margin-top: 0.25em;
+}
+
+#content > h2 {
+	margin-top: 0;
+}
+
+#dialogs > div {
+	display: none;
+}
+
+.dialog {
+	display: none;
+}
+
+.initiallyHidden {
+	display: none;
+}
+
+#choose {
+	margin-top: 50px;
+	text-align: center;
+}
+
+#choose a {
+	font-size: x-large;
+}
+
+.initiallyHidden {
+	display: none;
+}
+
+.accountWidget {
+	height: 5em;
+	margin: 5px 0.1em;
+	padding: 5px;
+	border: thin solid black;
+	position: relative;
+	background-color: #ebebeb;
+	border-color: #cecece;
+}
+
+.accountWidget .actions {
+	display: none;
+	width: 120px;
+	position: absolute;
+	right: 5px;
+	top: 5px;
+}
+
+.accountWidget .actions button {
+	font-size: 0.8em;
+	width: 100%;
+	margin-bottom: 0.2em;
+}
+
+.accountWidget .name {
+	font-weight: bold;
+}
+
+.accountWidget .actions .ui-button-text {
+	padding: 0.2em;
+}
+
+#accounts {
+	width: 20em;
+}
+
+#allAccountActions {
+	margin-top: 2em;
+}
+
+#allAccountActions button {
+	width: 11em;
+	display: block;
+}
+
+#btnShare {
+	margin-top: 1em;
+}
+
+th {
+	text-align: left;
+}
+
+
+td.actions {
+	background: #ffffff;
+}
+
+td.actions .ui-button-text {
+	padding: 1px 5px;
+}
+
+td {
+	vertical-align: top;
+}
+
+label.error {
+	display: block;
+	color: red;
+}
+
+#frmNewTx {
+	margin: 0px;
+}
+
+#pagingInfo {
+	margin-top: 10px;
+}
+
+button.hidden {
+	visibility: hidden;
+}
+
+#dlgKidLink div, #dlgUseKidLink div {
+	text-align: center;
+}
+
+#dlgKidLink div {
+	margin-bottom: 0.5em;
+}
+
+#kidLinkCode {
+	font-size: x-large;
+	margin: 1em 0;
+}
+
+#kidLinkDisclaimer {
+	font-size: smaller;
+	font-style: italic;
+}
+
+#dlgEditAccount td {
+	vertical-align: top;
+}
+
+div.sub-label {
+	font-style: italic;
+	font-size: smaller;
+}

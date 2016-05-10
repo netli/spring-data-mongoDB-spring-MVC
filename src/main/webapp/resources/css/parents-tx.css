@@ -1,0 +1,54 @@
+@CHARSET "ISO-8859-1";
+
+th.date, td.date {
+	/* datepicker widget seems to force a min width */
+	width: 160px;
+}
+
+th.description, td.description {
+	width: 300px;
+}
+
+th.amount, td.amount {
+	width: 150px;
+}
+
+th.editAmount, td.editAmount {
+	width: 6em;
+}
+
+#newTransactionArea #inDesc {
+	width: 100%;
+}
+
+#transactionEditor {
+	width: 800px; /* derive from above columns */
+}
+
+#transactionEditor label.error {
+	position: absolute;
+}
+
+#editor-inDesc {
+	width: 100%;
+}
+
+#transactions .even {
+	background-color: #e2e2e2;
+}
+
+
+#transactionEditor {
+	border: 2px solid black;
+	padding: 5px;
+	background-color: #f0f0f0;
+	position: absolute;
+}
+
+#editor-btnDelete {
+	margin-left: 3em;
+}
+
+#editor-btnDelete .ui-button-text {
+	color: red;
+}
